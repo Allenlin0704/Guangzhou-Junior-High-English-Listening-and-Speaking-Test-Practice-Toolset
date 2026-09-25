@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f8ff"><title>晚读练习 · 广州中考英语听说</title>
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="practice.css">
+</head>
+<body>
+  <header class="topbar"><a class="back" href="#" aria-label="返回">‹</a><div class="head-title"><b>英语听说晚读</b><small>广州中考 · 2024—2026 题型</small></div><button class="more" aria-label="更多">···</button></header>
+  <main>
+    <section class="intro"><div><span class="eyebrow">EVENING PRACTICE</span><h1>今天练一套</h1><p>按考试流程练习，完成后查看本次记录。</p></div><div class="intro-icon">听</div></section>
+    <div class="modebar"><button class="mode active" data-mode="part">分题练习</button><button class="mode" data-mode="full">整套模拟</button><button class="mode" data-mode="manage">题目管理</button></div>
+    <div class="layout">
+      <section class="content">
+        <div id="partView">
+          <div class="section-head"><h2>示范题 · 广州中考听说</h2><span class="score">共 7 部分 · 30 分</span></div>
+          <p class="subhead">可导入并替换为班级练习材料 <span>分题练习</span></p>
+          <div class="parts" id="parts"></div>
+          <div id="practice" class="practice hidden"></div>
+        </div>
+        <div id="manageView" class="hidden">
+          <div class="section-head"><h2>题目管理</h2><span class="score">保存在本机</span></div>
+          <p class="subhead">导入自己的晚读材料</p>
+          <div class="upload-row"><label class="upload"><input type="file" id="mediaFiles" accept="video/*,audio/*,.ppt,.pptx" multiple><b>＋ 导入音频 / 视频 / PPT</b><small>音频用于听力播放，视频可直接预览</small></label><label class="upload"><input type="file" id="questionFiles" accept=".json,.csv,.txt" multiple><b>＋ 导入题目</b><small>导入 JSON 题库</small></label></div>
+          <div id="files" class="files">还没有导入文件</div>
+          <details class="format"><summary>题库 JSON 格式</summary><code>[{"name":"听选信息 1","points":3,"kind":"choice","script":"听力原文","items":[{"prompt":"问题","options":["选项A","选项B","选项C"],"answer":1}]}]</code></details>
+        </div>
+      </section>
+      <aside class="roster">
+        <div class="roster-title"><div><span class="eyebrow">CLASSROOM</span><h2>点名 / 答题记录</h2></div><button id="draw" class="draw">抽一位</button></div>
+        <div class="picked"><small>当前学生</small><b id="pickedName">林子晴</b><span id="pickedMeta">18 号</span></div>
+        <div class="list-title"><b>本次正确数</b><span id="score">0 题</span></div><div id="students" class="students"></div>
+        <div class="roster-actions"><label class="import-roster">导入 Excel / 截图<input type="file" id="rosterFile" accept=".csv,.xlsx,.xls,.png,.jpg,.jpeg"></label><button id="clear" class="clear">清除本次记录</button></div><p class="upload-note">Excel 支持 XLSX/CSV；截图在本机浏览器识别。</p>
+        <p class="privacy">名单与答题记录仅保存在本机浏览器。</p>
+      </aside>
+    </div>
+  </main>
+  <footer><span>分题训练</span><span>听清楚，再作答</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
