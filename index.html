@@ -8,8 +8,8 @@
 <body>
   <header class="topbar"><a class="back" href="#" aria-label="返回">‹</a><div class="head-title"><b>英语听说晚读</b><small>广州中考 · 2024—2026 题型</small></div><button class="more" aria-label="更多">···</button></header>
   <main>
-    <section class="intro"><div><span class="eyebrow">EVENING PRACTICE</span><h1>今天练一套</h1><p>按考试流程练习，完成后查看本次记录。</p></div><div class="intro-icon">听</div></section>
-    <div class="modebar"><button class="mode active" data-mode="part">分题练习</button><button class="mode" data-mode="full">整套模拟</button><button class="mode" data-mode="manage">题目管理</button></div>
+    <section class="intro"><div><span class="eyebrow">EVENING PRACTICE</span><h1>今天练一套</h1><p>按广州中考题型顺序练习，随时暂停、重听和讲评。</p></div><div class="intro-icon">听</div></section>
+    <div class="modebar"><button class="mode active" data-mode="part">分题讲练</button><button class="mode" data-mode="full">整套讲评</button><button class="mode" data-mode="manage">题目管理</button></div>
     <div class="layout">
       <section class="content">
         <div id="partView">
@@ -21,9 +21,20 @@
         <div id="manageView" class="hidden">
           <div class="section-head"><h2>题目管理</h2><span class="score">保存在本机</span></div>
           <p class="subhead">导入自己的晚读材料</p>
-          <div class="upload-row"><label class="upload"><input type="file" id="mediaFiles" accept="video/*,audio/*,.ppt,.pptx" multiple><b>＋ 导入音频 / 视频 / PPT</b><small>音频用于听力播放，视频可直接预览</small></label><label class="upload"><input type="file" id="questionFiles" accept=".json,.csv,.txt" multiple><b>＋ 导入题目</b><small>导入 JSON 题库</small></label></div>
+          <div class="upload-row"><label class="upload"><input type="file" id="mediaFiles" accept="video/*,audio/*,.ppt,.pptx" multiple><b>＋ 导入音频 / 视频 / PPT</b><small>选择关联题型；PPTX 可提取文字</small></label><label class="upload"><input type="file" id="questionFiles" accept=".json" multiple><b>＋ 导入题库</b><small>载入 JSON 题库，可导出备份</small></label></div>
           <div id="files" class="files">还没有导入文件</div>
-          <details class="format"><summary>题库 JSON 格式</summary><code>[{"name":"听选信息 1","points":3,"kind":"choice","script":"听力原文","items":[{"prompt":"问题","options":["选项A","选项B","选项C"],"answer":1}]}]</code></details>
+          <section class="question-editor">
+            <div class="section-head"><h3>题目编辑</h3><button class="outline-action" id="exportQuestions">导出题库</button></div>
+            <label>编辑题型<select id="editSection"></select></label>
+            <div class="editor-grid"><label>题型名称<input id="editName"></label><label>分值<input id="editPoints" type="number" min="0" max="30"></label></div>
+            <label>原文 / 听力文本 / 转述材料<textarea id="editMain" rows="5" placeholder="粘贴或编辑英语原文"></textarea></label>
+            <label>题目与答案<textarea id="editItems" rows="8" placeholder="听选：题干 | 选项A | 选项B | 选项C | 正确选项(A/B/C)\n回答/询问：题目 | 参考答案"></textarea></label>
+            <label>信息转述要点<textarea id="editCues" rows="4" placeholder="每行一个要点"></textarea></label>
+            <label>本题型考点讲解<textarea id="editExplanation" rows="3" placeholder="写给学生看的解题思路，可点击朗读讲解播放"></textarea></label>
+            <div class="stage-actions"><button class="check" id="saveSection">保存本题型</button><button class="outline-action" id="restoreDemo">恢复示范题</button></div>
+            <small id="editorStatus" class="editor-help" aria-live="polite"></small>
+            <small class="editor-help">修改保存在当前浏览器。导出题库可备份或导入到另一台设备。</small>
+          </section>
         </div>
       </section>
       <aside class="roster">
